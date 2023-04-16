@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/green_blue_gradient">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/login_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PairResearch\n Institute Info"
+        android:textSize="48sp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Logo image -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_logo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_below="@id/login_title_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/ic_launcher_round_adaptive"/>
+
+    <!-- Email input field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_institute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_logo"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_institute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Institute or University"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#FFFFFF" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Year of study input field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_year_of_study"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_input_institute"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_year_of_study"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Year of Study"
+            android:inputType="number"
+            android:textColorHint="#FFFFFF" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- qualifications input field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_qualifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_input_year_of_study"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_qualifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Qualifications "
+            android:inputType="number"
+            android:textColorHint="#FFFFFF" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Next button -->
+    <Button
+        android:id="@+id/btn_register_info_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_input_qualifications"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:text="next"
+        android:textColor="#FFFFFF" />
+
+    <!-- Back button -->
+    <Button
+        android:id="@+id/btn_register_info_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_register_info_next"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:text="back"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>

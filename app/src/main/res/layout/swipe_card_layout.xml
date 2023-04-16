@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_border">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontal_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/linear_card_images"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/app_logo"/>
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:src="@drawable/app_logo"/>
+
+        </LinearLayout>
+
+
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/scroll_view_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/horizontal_scroll_view"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/btn_swipe_yes">
+
+        <TextView
+            android:id="@+id/txt_card_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:textSize="24dp"
+            android:text="Card Description"/>
+
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/btn_swipe_yes"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_handshake" />
+
+    <ImageButton
+        android:id="@+id/btn_swipe_no"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close" />
+
+</RelativeLayout>

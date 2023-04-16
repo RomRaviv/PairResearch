@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_item_profile"
+        android:icon="@drawable/ic_user_profile"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/menu_item_swipe"
+        android:icon="@drawable/ic_swipe"
+        android:title="Swipe" />
+
+    <item
+        android:id="@+id/menu_item_matches"
+        android:icon="@drawable/ic_handshake"
+        android:title="Matches" />
+
+
+</menu>
