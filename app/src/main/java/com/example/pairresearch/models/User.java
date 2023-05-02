@@ -52,7 +52,7 @@ public class User {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setUserDescription(String description) {
         this.description = description;
     }
 

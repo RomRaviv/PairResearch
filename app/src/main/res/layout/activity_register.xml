@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -119,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Description"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -178,11 +178,11 @@
     </RadioGroup>
     <!-- Register Button -->
     <Button
-        android:id="@+id/btn_register_done"
+        android:id="@+id/btn_register_next"
         android:layout_below="@id/radio_group_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done!"
+        android:text="next"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"/>

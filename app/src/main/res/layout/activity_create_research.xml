@@ -4,22 +4,21 @@
     android:background="@drawable/green_blue_gradient">
 
     <!-- Title TextView -->
-    <TextView
-        android:id="@+id/title_uploads_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="PairResearch"
-        android:textSize="32dp"
-        android:textStyle="bold|italic" />
+<!--    <TextView-->
+<!--        android:id="@+id/title_uploads_text_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:text="PairResearch"-->
+<!--        android:textSize="32dp"-->
+<!--        android:textStyle="bold|italic" />-->
 
     <!-- Register TextView -->
     <TextView
         android:id="@+id/register_uploads_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title_uploads_text_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="Create a Research"
@@ -51,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Research Name"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -86,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Payment ?"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -110,14 +109,41 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- User Type -->
+    <!-- Image upload -->
+    <LinearLayout
+        android:id="@+id/linear_research_image_uploads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_input_research_description"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+        <Button
+            android:id="@+id/btn_research_upload_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Research Images.."
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="28dp"
+            />
+        <ImageView
+            android:id="@+id/iv_research_image_preview"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_image_placeholder" />
+
+    </LinearLayout>
+
+
+
+    <!-- Final Project Suitable -->
     <CheckBox
         android:id="@+id/my_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This research is suitable for final project"
+        android:text="This research is suitable for a final project"
         android:textColor="#504848"
-        android:layout_below="@id/text_input_research_description"
+        android:layout_below="@id/linear_research_image_uploads"
         android:layout_marginHorizontal="32dp"
         android:textSize="24sp"
         android:padding="16dp"
