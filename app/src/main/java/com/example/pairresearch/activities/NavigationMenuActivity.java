@@ -28,25 +28,22 @@ public class NavigationMenuActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         frameLayout = findViewById(R.id.frame_layout);
 
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu_item_matches:
-                        // load home fragment
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new MatchesFragment()).commit();
-                        return true;
-                    case R.id.menu_item_profile:
-                        // load profile fragment
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new ProfileFragment()).commit();
-                        return true;
-                    case R.id.menu_item_swipe:
-                        // load settings fragment
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SwipeFragment()).commit();
-                        return true;
-                    default:
-                        return false;
-                }
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.menu_item_matches:
+                    // load home fragment
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new MatchesFragment()).commit();
+                    return true;
+                case R.id.menu_item_profile:
+                    // load profile fragment
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new ProfileFragment()).commit();
+                    return true;
+                case R.id.menu_item_swipe:
+                    // load settings fragment
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new SwipeFragment()).commit();
+                    return true;
+                default:
+                    return false;
             }
         });
     }

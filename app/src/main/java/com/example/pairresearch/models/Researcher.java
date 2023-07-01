@@ -28,4 +28,43 @@ public class Researcher extends User{
         this.labDescription = labDescription;
         this.researches = new ArrayList<>();
     }
+
+    public MedicalTitle getTitle() {
+        return title;
+    }
+
+    public void setTitle(MedicalTitle title) {
+        this.title = title;
+    }
+
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute) {
+        this.institute = institute;
+    }
+
+    public String getLabDescription() {
+        return labDescription;
+    }
+
+    public void setLabDescription(String labDescription) {
+        this.labDescription = labDescription;
+    }
+
+    public ArrayList<Research> getResearches() {
+        return researches;
+    }
+    public ArrayList<String> getResearchesNames() {
+        ArrayList<String> retVal = new ArrayList<String>();
+        for (Research research : researches) {
+            retVal.add(research.getName());
+        }
+        return retVal;
+    }
+
+    public void setResearches(ArrayList<Research> researches) {
+        this.researches = researches;
+    }
 }

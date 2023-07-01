@@ -6,18 +6,18 @@ import java.util.Objects;
 
 public class User {
 
-    protected String id;
+    protected int id;
     protected String name;
     protected String email;
     protected String description;
     protected String password;
     protected String linkedin;
+    protected long phoneNumber;
     protected ArrayList<MediaUpload> mediaUploads;
     protected Date registrationDate;
-    protected long phoneNumber;
     protected boolean active;
 
-    public User(String id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active) {
+    public User(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -84,7 +84,7 @@ public class User {
         return active;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

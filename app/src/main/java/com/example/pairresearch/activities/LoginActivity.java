@@ -9,14 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
+import com.example.pairresearch.App;
 import com.example.pairresearch.R;
-import com.example.pairresearch.models.DataManager;
+import com.example.pairresearch.models.Student;
+import com.example.pairresearch.models.User;
+import com.example.pairresearch.models.enums.UserType;
+import com.example.pairresearch.services.ApiService;
 
-import java.nio.charset.StandardCharsets;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    private DataManager dataManager = DataManager.getInstance(this);
+    private ApiService apiService = App.getApiService();
     private EditText edit_text_email;
     private EditText edit_text_password;
     private TextView text_view_register;
@@ -38,24 +43,38 @@ public class LoginActivity extends AppCompatActivity {
         button_login.setOnClickListener(view -> {
             String email = edit_text_email.getText().toString();
             String password = edit_text_password.getText().toString();
-            dataManager.login(email, password, response -> {
-                // Handle successful login
-                Intent intent = new Intent(LoginActivity.this, NavigationMenuActivity.class);
-                startActivity(intent);
-                finish();
+            apiService.login(email, password).enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    if (response.isSuccessful()) {
+                        // Get the logged in user
+                        User user = response.body();
 
-            }, error -> {
-                // Handle login error
-                String errorMessage = "Oops! Something didn't match. Try again!";
-//                if (error.networkResponse != null && error.networkResponse.data != null) {
-//                    errorMessage = new String(error.networkResponse.data, StandardCharsets.UTF_8);
-//                }
-                Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
-                edit_text_email.setText("");
-                edit_text_password.setText("");
+                        // Do something with the user object
+                        App.setLoggedUser(user);
+                        App.currentUserType = user instanceof Student ? UserType.Student : UserType.Researcher;
+
+
+                        // Handle successful login
+                        Intent intent = new Intent(LoginActivity.this, NavigationMenuActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // Handle login error
+                        Toast.makeText(LoginActivity.this, "Oops! Something didn't match. Try again!", Toast.LENGTH_SHORT).show();
+                        edit_text_email.setText("");
+                        edit_text_password.setText("");
+                    }
+                }
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    // Handle failure
+                    Toast.makeText(LoginActivity.this, "Network error. Please try again.", Toast.LENGTH_SHORT).show();
+                }
             });
-
         });
+
+
         text_view_register.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
