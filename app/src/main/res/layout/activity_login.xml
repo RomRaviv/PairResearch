@@ -66,12 +66,40 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- User Type -->
+    <RadioGroup
+        android:id="@+id/radio_group_login"
+        android:layout_below="@id/text_input_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:padding="16dp">
+
+        <RadioButton
+            android:id="@+id/radio_student_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:text="Student" />
+
+        <RadioButton
+            android:id="@+id/radio_researcher_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_marginLeft="70dp"
+            android:text="Researcher" />
+
+    </RadioGroup>
+
     <!-- Login button -->
     <Button
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_input_password"
+        android:layout_below="@id/radio_group_login"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="24dp"
         android:text="LOGIN"

@@ -47,14 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Get references to all TextInputLayouts
 
-
-
-
-
-
-
-
-
         imagePickerLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(),
                 uri -> {
                     imageUri = uri;

@@ -104,7 +104,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void populateViewPager() {
-        apiService.getMediaUploads(currentUser.getId()).enqueue(new Callback<List<MediaUpload>>() {
+        apiService.getUserMediaUploads(currentUser.getId()).enqueue(new Callback<List<MediaUpload>>() {
             @Override
             public void onResponse(Call<List<MediaUpload>> call, Response<List<MediaUpload>> response) {
                 if (response.isSuccessful()) {

@@ -1,5 +1,6 @@
 package com.example.pairresearch.services;
 
+import com.example.pairresearch.models.Match;
 import com.example.pairresearch.models.MediaUpload;
 import com.example.pairresearch.models.Research;
 import com.example.pairresearch.models.Researcher;
@@ -16,11 +17,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 
 import java.util.List;
-import java.util.Map;
 
 public interface  ApiService {
 
@@ -48,9 +47,36 @@ public interface  ApiService {
     @GET("researchers/{id}")
     Call<Researcher> getResearcher(@Path("id") int id);
 
+    @GET("/media_upload_user/{userId}")
+    Call<List<MediaUpload>> getUserMediaUploads(@Path("userId") int userId);
+
+    @GET("research_media_uploads/{researchId}")
+    Call<List<MediaUpload>> getResearchMediaUploads(@Path("userId") int researchId);
+
+    @GET("match/{studentId}/{researchId}")
+    Call<Boolean> checkMatch(@Path("studentId") int studentId, @Path("researchId") int researchId);
+
+    @GET("student_matches/{id}")
+    Call<List<Research>> getStudentMatches(@Path("id") int id);
+
+    @GET("research_matches/{id}")
+    Call<List<Student>> getResearchMatches(@Path("id") int id);
+
+    @GET("get_researches_cards/{id}")
+    Call<List<Research>> getResearchesCards(@Path("id") int id);
+
+    @GET("get_students_cards/{id}")
+    Call<List<Research>> getStudentsCards(@Path("id") int id);
+
+
+
     @FormUrlEncoded
     @POST("login")
-    Call<User> login(@Field("email") String email, @Field("password") String password);
+    Call<Student> login_student(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("login")
+    Call<Researcher> login_researcher(@Field("email") String email, @Field("password") String password);
 
     @Multipart
     @POST("uploadResearch")
@@ -63,11 +89,17 @@ public interface  ApiService {
             @Part List<MultipartBody.Part> files
     );
 
-    @GET("mediaUploads/{userId}")
-    Call<List<MediaUpload>> getMediaUploads(@Path("userId") int userId);
 
-    @GET("researchMediaUploads/{researchId}")
-    Call<List<MediaUpload>> getResearchMediaUploads(@Path("userId") int researchId);
+    @FormUrlEncoded
+    @POST("userAction")
+    Call<ResponseBody> postUserAction(
+            @Field("swiperId") int swiperId,
+            @Field("sweptId") int sweptId,
+            @Field("SwiperType") int swiperType,
+            @Field("actionType") int actionType
+    );
+
+
 
 
 }

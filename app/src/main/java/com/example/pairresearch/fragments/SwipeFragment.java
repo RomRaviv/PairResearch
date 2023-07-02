@@ -39,34 +39,6 @@ public class SwipeFragment extends Fragment {
         // Set adapter on the SwipeFlingAdapterView
         swipeFlingAdapterView.setAdapter(mySwipeAdapter);
 
-        // Set FlingListener on the SwipeFlingAdapterView
-        swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-            @Override
-            public void removeFirstObjectInAdapter() {
-                // this could also be delegated to the adapter
-                mySwipeAdapter.removeFirstObjectInAdapter();
-            }
-
-            @Override
-            public void onLeftCardExit(Object dataObject) {
-                // Handle left card exit
-            }
-
-            @Override
-            public void onRightCardExit(Object dataObject) {
-                // Handle right card exit
-            }
-
-            @Override
-            public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Handle adapter about to be empty
-            }
-
-            @Override
-            public void onScroll(float v) {
-                // Handle scroll
-            }
-        });
 
         return view;
     }

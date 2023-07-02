@@ -11,15 +11,17 @@ public class Researcher extends User{
     private String institute;
     private String labDescription;
     private ArrayList<Research> researches;
+    private Research activeResearch;
 
     public Researcher(){}
 
-    public Researcher(String id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active, MedicalTitle title, String institute, String labDescription) {
+    public Researcher(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active, MedicalTitle title, String institute, String labDescription) {
         super(id, name, email, description, password, linkedin, registrationDate, phoneNumber, active);
         this.title = title;
         this.institute = institute;
         this.labDescription = labDescription;
         this.researches = new ArrayList<>();
+        this.activeResearch = null;
     }
 
     public Researcher(MedicalTitle title, String institute, String labDescription) {
@@ -27,6 +29,8 @@ public class Researcher extends User{
         this.institute = institute;
         this.labDescription = labDescription;
         this.researches = new ArrayList<>();
+        this.activeResearch = null;
+
     }
 
     public MedicalTitle getTitle() {
@@ -39,6 +43,14 @@ public class Researcher extends User{
 
     public String getInstitute() {
         return institute;
+    }
+
+    public Research getActiveResearch() {
+        return activeResearch;
+    }
+
+    public void setActiveResearch(Research activeResearch) {
+        this.activeResearch = activeResearch;
     }
 
     public void setInstitute(String institute) {
