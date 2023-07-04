@@ -15,7 +15,7 @@ public class Researcher extends User{
 
     public Researcher(){}
 
-    public Researcher(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active, MedicalTitle title, String institute, String labDescription) {
+    public Researcher(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, String phoneNumber, boolean active, MedicalTitle title, String institute, String labDescription) {
         super(id, name, email, description, password, linkedin, registrationDate, phoneNumber, active);
         this.title = title;
         this.institute = institute;

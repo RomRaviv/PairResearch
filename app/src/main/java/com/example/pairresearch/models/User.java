@@ -12,12 +12,12 @@ public class User {
     protected String description;
     protected String password;
     protected String linkedin;
-    protected long phoneNumber;
+    protected String phoneNumber;
     protected ArrayList<MediaUpload> mediaUploads;
     protected Date registrationDate;
     protected boolean active;
 
-    public User(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, long phoneNumber, boolean active) {
+    public User(int id, String name, String email, String description, String password, String linkedin, Date registrationDate, String phoneNumber, boolean active) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -72,11 +72,11 @@ public class User {
         this.linkedin = linkedin;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

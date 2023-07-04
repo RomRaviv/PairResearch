@@ -41,14 +41,13 @@ public class MySwipeAdapter extends BaseAdapter implements SwipeFlingAdapterView
     private FragmentActivity fragmentActivity;
     private ArrayList<Research> researchList;
     private Context mContext;
-    private UserType currentUserType;
+    private UserType currentUserType = App.currentUserType;
 
 
     public MySwipeAdapter(Context context, FragmentActivity fragmentActivity, ArrayList<Student> studentList, ArrayList<Research> researchList) {
         mContext = context;
         this.studentList = studentList;
         this.researchList = researchList;
-        currentUserType = App.currentUserType;
         this.fragmentActivity = fragmentActivity;
     }
 
@@ -99,12 +98,13 @@ public class MySwipeAdapter extends BaseAdapter implements SwipeFlingAdapterView
                 txt_card_description.setText(student.getDescription());
                 btn_swipe_no.setOnClickListener(view1 -> rejection(currentUser.getId(), student.getId(),UserType.Student));
                 btn_swipe_yes.setOnClickListener(view1 -> acceptance(currentUser.getId(), student.getId(),UserType.Student));
-
+                break;
             case Student:
                 Research research = researchList.get(position);
                 txt_card_description.setText(research.getDescription());
                 btn_swipe_no.setOnClickListener(view1 -> rejection(currentUser.getId(), research.getId(),UserType.Research));
                 btn_swipe_yes.setOnClickListener(view1 -> acceptance(currentUser.getId(), research.getId(),UserType.Research));
+                break;
             default:
                 break;
         }
@@ -117,8 +117,10 @@ public class MySwipeAdapter extends BaseAdapter implements SwipeFlingAdapterView
         switch (currentUserType) {
             case Researcher:
                 studentList.remove(0);
+                break;
             case Student:
                 researchList.remove(0);
+                break;
             default:
                 break;
         }
@@ -278,7 +280,7 @@ public class MySwipeAdapter extends BaseAdapter implements SwipeFlingAdapterView
 
     @Override
     public void onAdapterAboutToEmpty(int itemsInAdapter) {
-        // Handle when there are no more items to swipe
+            // Handle when there are no more items to swipe
     }
 
     @Override

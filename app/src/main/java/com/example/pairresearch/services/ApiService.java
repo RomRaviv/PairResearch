@@ -57,16 +57,16 @@ public interface  ApiService {
     Call<Boolean> checkMatch(@Path("studentId") int studentId, @Path("researchId") int researchId);
 
     @GET("student_matches/{id}")
-    Call<List<Research>> getStudentMatches(@Path("id") int id);
+    Call<List<Student>> getStudentMatches(@Path("id") int id);
 
     @GET("research_matches/{id}")
-    Call<List<Student>> getResearchMatches(@Path("id") int id);
+    Call<List<Research>> getResearchMatches(@Path("id") int id);
 
     @GET("get_researches_cards/{id}")
     Call<List<Research>> getResearchesCards(@Path("id") int id);
 
     @GET("get_students_cards/{id}")
-    Call<List<Research>> getStudentsCards(@Path("id") int id);
+    Call<List<Student>> getStudentsCards(@Path("id") int id);
 
 
 

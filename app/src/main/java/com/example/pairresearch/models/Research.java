@@ -1,9 +1,15 @@
 package com.example.pairresearch.models;
 
+import com.example.pairresearch.App;
 import com.example.pairresearch.models.enums.Degree;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Research {
     private int id;
@@ -90,6 +96,22 @@ public class Research {
 
     public boolean removeMediaUpload(MediaUpload mediaUpload) {
         return mediaUploads.remove(mediaUpload);
+    }
+
+    public ArrayList<Student> getStudentMatches() {
+        App.getApiService().getStudentMatches(id).enqueue(new Callback<List<Student>>() {
+            @Override
+            public void onResponse(Call<List<Student>> call, Response<List<Student>> response) {
+                List<Student> students = response.body();
+                studentMatches.addAll(students);
+            }
+
+            @Override
+            public void onFailure(Call<List<Student>> call, Throwable t) {
+
+            }
+        });
+        return studentMatches;
     }
 
     public ArrayList<String> getAllMediaSources(){
